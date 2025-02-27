@@ -4277,13 +4277,13 @@ textarea.form-control-lg {
 
 .navbar-dark,
 .navbar[data-bs-theme=dark] {
-  --bs-navbar-color: rgba(255, 255, 255, 0.55);
-  --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
-  --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
-  --bs-navbar-active-color: #fff;
-  --bs-navbar-brand-color: #fff;
-  --bs-navbar-brand-hover-color: #fff;
-  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
+  --bs-navbar-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-hover-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-disabled-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-active-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-brand-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-brand-hover-color: rgba(0, 12, 237, 0.55);
+  --bs-navbar-toggler-border-color: rgba(0, 12, 237, 0.55);
   --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
@@ -6067,10 +6067,10 @@ textarea.form-control-lg {
 }
 
 .carousel-indicators {
-  position: absolute;
+  position: relative;
   right: 0;
-  bottom: 0;
-  left: 0;
+  bottom: -10%;
+  left: -30%;
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -6078,12 +6078,13 @@ textarea.form-control-lg {
   margin-right: 55%;
   margin-bottom: 1rem;
   margin-left: 55%;
+  background-color: rgba(255, 255, 255, 0.477);
 }
 .carousel-indicators [data-bs-target] {
   box-sizing: content-box;
   flex: 0 1 auto;
-  width: 30px;
-  height: 3px;
+  width: 50px;
+  height: 30px;
   padding: 0;
   margin-right: 3px;
   margin-left: 3px;
