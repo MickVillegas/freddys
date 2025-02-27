@@ -1,17 +1,17 @@
 let pe = document.getElementsByClassName("pedir");
 
 for(let x = 0; x < pe.length; x++){
-  pe[x].addEventListener("click", abrirModal)
+  pe[x].addEventListener("click", abrirModal2)
 }
 
-function abrirModal(){
+function abrirModal2(){
   let modal = document.getElementById("modal2")
   modal.style.display = "flex"
-  modal.addEventListener("click", opcionPulsada)
+  modal.addEventListener("click", opcionPulsada2)
 }
 
 
-function opcionPulsada(event){
+function opcionPulsada2(event){
   let modal = document.getElementById("modal2")
   let nodoCLick
   if(event){
@@ -41,6 +41,11 @@ let edad = document.getElementById("edad")
 let malNom
 let maAp
 let numMal = 0;
+let AlertaCreada = false
+
+function hayAlerta(x){
+  AlertaCreada = x
+}
 
 let numeros = "0123456789"
 
@@ -51,6 +56,8 @@ function setMalNom(x){
 function setMalAp(x){
   maAp = x
 }
+
+
 
 function pruebaAcceso(x){
   for (let i = 0; i < x.length; i++) {
@@ -74,6 +81,7 @@ function escribirAlerta(){
 }
 
 function borrarAlerta(){
+  hayAlerta(false)
   let formu = document.getElementById("formulario")
   let parrafo = document.getElementsByClassName("mal")
   formu.removeChild(parrafo[0])
@@ -89,10 +97,14 @@ function abrirModal(){
   console.log(edad.value)
   if(numMal > 0 || parseInt(edad.value) < 0){
     escribirAlerta()
+    hayAlerta(true)
     console.log("hay un dato erroneo")
   }
   else{
-    borrarAlerta()
+    console
+    if(AlertaCreada == true){
+      borrarAlerta()
+    }
     let modal = document.getElementById("modal2")
     modal.style.display = "flex"
     modal.addEventListener("click", opcionPulsada)
