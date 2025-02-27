@@ -102,20 +102,20 @@
   </div>
   </div>
   
-  <div class="col-md-5 offset-md-2">
+  <div id="formulario" class="col-md-5 offset-md-2">
   <div class="bg-warning border border-success rounded-4 border border-4 pt-2 pb-2 ps-2 pe-2 ms-5 me-5">
   <form onsubmit="return false;">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre:</label>
-        <input type="text" class="form-control" id="nombre">
+        <input type="text" class="form-control" id="nombre" required>
       </div>
       <div class="mb-3">
         <label for="apellidos" class="form-label">Apellidos:</label>
-        <input type="text" class="form-control" id="apellidos">
+        <input type="text" class="form-control" id="apellidos" required>
       </div>
       <div class="mb-3">
           <label for="edad" class="form-label">Edad:</label>
-          <input type="number" class="form-control" id="edad">
+          <input type="number" class="form-control" id="edad" min="0">
         </div>
   
       <button type="submit" class="enviar btn btn-primary">Enviar</button>

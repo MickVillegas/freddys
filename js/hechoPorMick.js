@@ -1,19 +1,5 @@
 let pe = document.getElementsByClassName("pedir");
-  /*
-for(let x = 0; x < pe.length; x++){
-  pe[x].addEventListener("click", function() {
-    document.getElementById("modal").style.display = "flex";
-})
-}
-document.querySelector(".close").addEventListener("click", function() {
-  document.getElementById("modal").style.display = "none";
-});
-*/
 
-
-
-
-//botonPulsado.addEventListener("click", enviarDatos)
 for(let x = 0; x < pe.length; x++){
   pe[x].addEventListener("click", abrirModal)
 }
@@ -48,22 +34,70 @@ function opcionPulsada(event){
 
 
 
+let nombre = document.getElementById("nombre")
+let apellidos = document.getElementById("apellidos")
+let edad = document.getElementById("edad")
 
+let malNom
+let maAp
+let numMal = 0;
 
+let numeros = "0123456789"
 
+function setMalNom(x){
+  malNom = x
+}
+
+function setMalAp(x){
+  maAp = x
+}
+
+function pruebaAcceso(x){
+  for (let i = 0; i < x.length; i++) {
+    for (let u = 0; u < numeros.length; u++) {
+      if(x[i] == numeros[u]){
+        numMal++
+      }
+    }
+  }
+}
 
 let en = document.getElementsByClassName("enviar");
 
+function escribirAlerta(){
+    let formu = document.getElementById("formulario")
+    let p = document.createElement("p")
+    p.setAttribute("class", "text-danger mt-3 mal")
+    let texto = document.createTextNode('Error: No se aceptan numeros en los campos " Nombre" o "Apellidos" ni numeros por debajo de cero en "Edad"')
+    p.appendChild(texto)
+    formu.appendChild(p)
+}
 
-//botonPulsado.addEventListener("click", enviarDatos)
+function borrarAlerta(){
+  let formu = document.getElementById("formulario")
+  let parrafo = document.getElementsByClassName("mal")
+  formu.removeChild(parrafo[0])
+}
+
 for(let x = 0; x < en.length; x++){
 en[x].addEventListener("click", abrirModal)
 }
 
 function abrirModal(){
-  let modal = document.getElementById("modal2")
-  modal.style.display = "flex"
-  modal.addEventListener("click", opcionPulsada)
+  pruebaAcceso(nombre.value)
+  pruebaAcceso(apellidos.value)
+  console.log(edad.value)
+  if(numMal > 0 || parseInt(edad.value) < 0){
+    escribirAlerta()
+    console.log("hay un dato erroneo")
+  }
+  else{
+    borrarAlerta()
+    let modal = document.getElementById("modal2")
+    modal.style.display = "flex"
+    modal.addEventListener("click", opcionPulsada)
+  }
+  numMal = 0
 }
 
 
@@ -85,13 +119,6 @@ function opcionPulsada(event){
   }
 }
 
-/*
-      for(let x = 0; x < en.length; x++){
-        en[x].addEventListener("click", function() {
-          document.getElementById("modal").style.display = "flex";
-      })
-      }
-*/      
 
 
 
